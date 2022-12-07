@@ -13,7 +13,7 @@ Prerequisites
 
 You need the following libraries and/or programs:
 
-* `Python`_ 3.8
+* `Python`_ 3.10
 * Python `Virtualenv`_ and `Pip`_
 * `PostgreSQL`_ 10 or above
 * `Redis`_ for `Celery`_ to work
@@ -64,9 +64,9 @@ development machine.
 
    .. code-block:: bash
 
-       $ virtualenv env
+       $ virtualenv env --python=3.11.0
        $ source env/bin/activate
-       $ pip install -r requirements/dev.txt
+       $ pip3 install -r requirements/dev.txt
 
 4. Install and build the frontend libraries:
 
@@ -85,22 +85,22 @@ development machine.
 
    .. code-block:: bash
 
-       $ python src/manage.py collectstatic --link
-       $ python src/manage.py compilemessages
-       $ python src/manage.py migrate
+       $ python3 src/manage.py collectstatic --link
+       $ python3 src/manage.py compilemessages
+       $ python3 src/manage.py migrate
 
 7. Create a superuser to access the management interface:
 
    .. code-block:: bash
 
-       $ python src/manage.py createsuperuser
+       $ python3 src/manage.py createsuperuser
 
 8. You can now run your installation and point your browser to the address
    given by this command:
 
    .. code-block:: bash
 
-       $ python src/manage.py runserver
+       $ python3 src/manage.py runserver
 
 
 **Note:** If you are making local, machine specific, changes, add them to
@@ -145,7 +145,7 @@ this particular SDK build for local backend dev and testing.
 
    .. code-block:: bash
 
-      $ python src/manage.py collectstatic --link
+      $ python3 src/manage.py collectstatic --link
 
 If you're using a tagged version with the SDK code in a subdirectory, you can set the
 ``SDK_RELEASE`` environment variable - it defaults to ``latest`` in dev settings.
@@ -168,15 +168,15 @@ When updating an existing installation:
 
        $ git pull
        $ pip install -r requirements/dev.txt
-       $ npm install
+       $ npm ci --legacy-peer-deps
        $ npm run build
 
 3. Update the statics and database:
 
    .. code-block:: bash
 
-       $ python src/manage.py collectstatic --link
-       $ python src/manage.py migrate
+       $ python3 src/manage.py collectstatic --link
+       $ python3 src/manage.py migrate
 
 
 Testsuite
@@ -186,7 +186,7 @@ To run the test suite:
 
 .. code-block:: bash
 
-    $ python src/manage.py test openforms
+    $ python3 src/manage.py test openforms
 
 Configuration via environment variables
 =======================================
@@ -250,13 +250,13 @@ Commands can be executed using:
 
 .. code-block:: bash
 
-    $ python src/manage.py <command>
+    $ python3 src/manage.py <command>
 
 You can always get a full list of available commands by running:
 
 .. code-block:: bash
 
-    $ python src/manage.py help
+    $ python3 src/manage.py help
 
 There are a number of developer management commands available in this project.
 
